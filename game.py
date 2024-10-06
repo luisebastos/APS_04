@@ -70,6 +70,19 @@ def translate_to_center(vertices):
 
 clock = pygame.time.Clock()
 theta_x, theta_y, theta_z = 0, 0, 0
+keys = pygame.key.get_pressed()
+if keys[pygame.K_LEFT]:
+    theta_y -= 0.05  # Rotaciona ao redor do eixo Y para a esquerda
+if keys[pygame.K_RIGHT]:
+    theta_y += 0.05  # Rotaciona ao redor do eixo Y para a direita
+if keys[pygame.K_UP]:
+    theta_x -= 0.05  # Rotaciona ao redor do eixo X para cima
+if keys[pygame.K_DOWN]:
+    theta_x += 0.05  # Rotaciona ao redor do eixo X para baixo
+if keys[pygame.K_w]:
+    cube_vertices[:, 2] += 0.1  # Movimenta o cubo para "frente" ao longo do eixo Z
+if keys[pygame.K_s]:
+    cube_vertices[:, 2] -= 0.1  # Movimenta o cubo para "trás" ao longo do eixo Z
 
 running = True
 while running:
